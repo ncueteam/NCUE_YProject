@@ -18,8 +18,8 @@ server端 <https://jade-impulse-6f8.notion.site/0f2234d368bb4eac8b94621e89ecebd7
 
 ## 開會紀錄
 
-* 1/13 <https://www.youtube.com/watch?v=kr1WZAYzVcs>
-* 2/1 <https://www.youtube.com/watch?v=ESlwJbC6gb0>
+* 1/13 <https://youtu.be/ifOYMJg-3Ak>
+* 2/1 <https://youtu.be/qnjHYRQzu_k>
 
 ## 功能
 
