@@ -12,6 +12,10 @@
 > 
 > S0954026 李妍瑄
 
+## 環境安裝
+
+server端 https://jade-impulse-6f8.notion.site/0f2234d368bb4eac8b94621e89ecebd7
+
 ## 使用說明
 
 * 將裝置通電
