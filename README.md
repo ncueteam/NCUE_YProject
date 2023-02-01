@@ -9,12 +9,30 @@
 > S0954020 邱靖云
 >
 > S0861016 王鈺婷
-> 
+>
 > S0954026 李妍瑄
 
 ## 環境安裝
 
-server端 https://jade-impulse-6f8.notion.site/0f2234d368bb4eac8b94621e89ecebd7
+server端 <https://jade-impulse-6f8.notion.site/0f2234d368bb4eac8b94621e89ecebd7>
+
+## 功能
+
+### esp32端
+
+* 傳統紅外線家電控制
+* 傳統開關控制
+* 新型MQTT家電控制
+* 網路端、家用伺服器端控制
+* 控制訊息加密
+
+### 伺服器端
+
+* nothing here
+
+### app 端
+
+* nothing here
 
 ## 使用說明
 
