@@ -14,6 +14,8 @@
 
 ## 環境安裝
 
+vscode micropython <https://github.com/pycom/pymakr-vsc/blob/HEAD/GET_STARTED.md>
+
 WSA <https://www.gdaily.org/28643/windows-11-install-google-play>
 
 server端 <https://jade-impulse-6f8.notion.site/0f2234d368bb4eac8b94621e89ecebd7>
