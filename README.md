@@ -41,7 +41,7 @@ server端 <https://jade-impulse-6f8.notion.site/0f2234d368bb4eac8b94621e89ecebd7
 
 * 室內
 
-    1.空氣監測  
+    1.空氣監測<br>  
         檢測室內空氣
             DHT11/DHT22溫溼度傳感器(顯示在app上)
             GP2Y1014空氣顆粒物傳感器/PMS5003ST PM2.5
