@@ -12,6 +12,8 @@
 >
 > S0954026 李妍瑄
 
+> S0954016 戴育琪
+
 ## 環境安裝
 
 vscode micropython <https://github.com/pycom/pymakr-vsc/blob/HEAD/GET_STARTED.md>
