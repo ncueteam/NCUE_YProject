@@ -8,24 +8,27 @@ class MQTTUnit:
     topic = "NCUEMQTT"
     client = mqtt.Client()
     thread_list = []
-    # 處理收到的訊息
+    username = ""
+    def on_connect(self,client, userdata, flags, rc) -> None:
+            # print("Connected with result code "+str(rc))
+            self.client.subscribe(self.topic)
     def on_message(self,client, userdata, msg):
         print(msg.topic+" "+str(msg.payload))
-    def __init__(self):
+    def __init__(self,username):
         self.thread_list = []
-        # 連接到MQTT代理並啟動訊息處理程序
-        self.client.on_connect = self.client.subscribe(self.topic)
+        self.username = username
+        self.client.on_connect = self.on_connect
         self.client.on_message = self.on_message
         self.client.connect("test.mosquitto.org", 1883, 60)
     
     def sendMessage(self) -> None:
         print('執行緒 ID:' + str(threading.get_ident()))
-        self.client.publish(self.topic, input())
+        self.client.publish(self.topic,"["+self.username+"]\t"+input())
         self.sendMessage()
 
     def run(self) -> None:
         self.thread_list.append(threading.Thread(target=self.sendMessage, args=()))
-        self.thread_list.append(threading.Thread(target=self.client.loop_forever))
+        self.thread_list.append(threading.Thread(target=self.client.loop_forever, args=()))
         for i in self.thread_list:    
             i.start()
  
@@ -33,5 +36,5 @@ class MQTTUnit:
             i.join()
 
 if __name__ == "__main__":
-    runner = MQTTUnit()
+    runner = MQTTUnit(input("user name: "))
     runner.run()
