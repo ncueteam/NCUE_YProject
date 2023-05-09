@@ -26,6 +26,22 @@ class _WebViewAppState extends State<WebViewApp> {
   final _resultInfo = 'Hello,Vue!';
   final flutterWebViewPlugin = FlutterWebviewPlugin();
 
+  void setAllowFileAccess(bool allow) {
+    //allow = true;
+    setAllowFileAccess(true);
+  }
+
+  void setAllowFileAccessFromFileURLs(bool allow) {
+    //allow = true;
+    setAllowFileAccessFromFileURLs(true);
+  }
+
+  /*void initWebViewSettings(final context) {
+    WebSettings webSetting = this.getSettings();
+    webSetting.setAllowFileAccess(true);
+    webSetting.setAllowFileAccessFromFileURLs(true);
+  }*/
+
   @override
   void initState() {
     super.initState();
@@ -47,8 +63,6 @@ class _WebViewAppState extends State<WebViewApp> {
 
   @override
   Widget build(BuildContext context) {
-    webSettings.setAllowFileAccess(true);
-    webSettings.setAllowFileAccessFromFileURLs(true);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter WebView'),
