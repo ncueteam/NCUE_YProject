@@ -32,8 +32,7 @@ class _WebViewAppState extends State<WebViewApp> {
     controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..loadRequest(
-        Uri.parse(
-            'file:///C:/Users/HP/Desktop/vue-soft-ui-dashboard-main/src/views/Profile.vue'),
+        Uri.parse('file:///C:/Users/HP/Desktop/vue-soft-ui-dashboard-main/src/views/Profile.vue'),
       )
       ..addJavaScriptChannel('getInfoFromVue',
           onMessageReceived: (JavaScriptMessage message) {
