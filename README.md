@@ -2,6 +2,10 @@
 
 畢業專題
 
+## 相關連結
+
+> https://github.com/Yunitrish006006/ncue_yproject
+
 ## 組員
 
 > S0954005 林昀佑
