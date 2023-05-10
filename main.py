@@ -1,9 +1,10 @@
-from MQTT.MQTTUnit import MQTTUnit
+from MQTT.unit import Unit
 
-if __name__ == '__main__':
-    runner = MQTTUnit(input("user name: "))
+
+def main():
+    runner = Unit(input("user name: "))
     runner.run()
 
-    print("ok")
 
+main()
 
