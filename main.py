@@ -1,5 +1,5 @@
 # from MQTT.unit import Unit
-from MQTT import test2
+from MQTT import DHT11
 
 def main():
     print("launching...")
