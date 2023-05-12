@@ -4,7 +4,13 @@
 
 ## 相關連結
 
+### APP
+
 > https://github.com/Yunitrish006006/ncue_yproject
+
+### 硬體
+
+> this
 
 ## 組員
 
@@ -16,7 +22,7 @@
 >
 > S0954026 李妍瑄
 >
-> S0954016 戴育琪 hello world 
+> S0954016 戴育琪
 
 ## 環境安裝
 
