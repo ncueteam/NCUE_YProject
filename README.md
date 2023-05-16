@@ -2,6 +2,16 @@
 
 畢業專題
 
+## 相關連結
+
+### APP
+
+> https://github.com/Yunitrish006006/ncue_yproject
+
+### 硬體
+
+> this
+
 ## 組員
 
 > S0954005 林昀佑
