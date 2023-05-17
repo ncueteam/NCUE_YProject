@@ -1,9 +1,10 @@
-from MQTT import uasyncio_led
-
+#from MQTT import DHT11
+from MQTT import BH1750
 
 def main():
     print("launching...")
-    uasyncio_led.run()
+    #DHT11.run()
+    BH1750.run()
 
 
-main()
+#main()
