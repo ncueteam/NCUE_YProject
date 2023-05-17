@@ -57,7 +57,7 @@ import 'package:shelf_static/shelf_static.dart';
 
 
 void main() {
-  final staticHandler = createStaticHandler('path_to_your_files', defaultDocument: 'assets/Profile.vue');
+  final staticHandler = createStaticHandler('path_to_your_files', defaultDocument: 'assets/vue-soft-ui-dashboard-main/src/viewsProfile.vue');
   final port = 8080; // Choose a port for the local server
   final server = shelf_io.serve(staticHandler, 'localhost', port);
   runApp(
