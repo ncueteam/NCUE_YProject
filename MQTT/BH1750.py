@@ -1,44 +1,19 @@
 from machine import Pin,I2C
 import time
 
-i2c = I2C(0,scl=Pin(16), sda=Pin(17), freq=1_000_000)
-#str = i2c.scan()
-#print('%x'%str[0])
-
-BH1750_CMD_POWERDOWN        = 0x0
-BH1750_CMD_POWERON          = 0x1
-BH1750_CMD_RESET            = 0x7
-BH1750_CMD_H_RESOLUTION     = 0x10
-BH1750_CMD_H_RESOLUTION2    = 0x11
-BH1750_CMD_L_RESOLUTION     = 0x13
-BH1750_CMD_ONETIME_H        = 0x20
-BH1750_CMD_ONETIME_H2       = 0x21
-BH1750_CMD_ONETIME_L        = 0x23
+i2c = I2C(0,scl = Pin(15),sda = Pin(4),freq = 1_000_000)
+scan = i2c.scan()
+print(scan)
+#print(hex(i2c.scan()[0]),hex(i2c.scan()[1]))  # 打印器件I2C地址
 BH1750_I2C_ADD  = 0x23
 
-#buf = bytearray(1)
-#buf[0] = BH1750_CMD_H_RESOLUTION
-#i2c.writeto(BH1750_I2C_ADD, buf)
-#time.sleep_ms(3000)
+#i2c.writeto(BH1750_I2C_ADD,chr(0x01)) # 通电运行
+#i2c.writeto(BH1750_I2C_ADD,chr(0x07)) # 复位
+#i2c.writeto(BH1750_I2C_ADD,chr(0x10)) # 横向分辨率连续读取 1 Lx 120ms
 
-def Init():
-    i2c.writeto(BH1750_I2C_ADD, b'\x01')
-    i2c.writeto(BH1750_I2C_ADD, b'\x07')
-    i2c.writeto(BH1750_I2C_ADD, b'\x10')
-
-def Gy_30():
-    buf = i2c.readfrom(BH1750_I2C_ADD, 2)
-    data = buf[0] * 256 + buf[1]
-    time.sleep_ms(3000)
-    return data
-def main():
-    Init()
-    while True:
-        print("L:" + Gy_30())
-
-#while True:
-    #buf = i2c.readfrom(BH1750_I2C_ADD, 2)
-    #data = buf[0] * 256 + buf[1]
-    #print(data)
-    #time.sleep_ms(3000)
-
+while True:
+    gy = 0
+    gy = i2c.readfrom(BH1750_I2C_ADD,2) #0-65535 1 8bit 2  int 16 char 8
+    gy30 = float(gy[0] << 8 | gy[1])/1.2 #左移动，可以理解为乘法 gy[0]*0xff
+    time.sleep_ms(2000)
+    print("光照值 = %.2f Lx" %gy30)
