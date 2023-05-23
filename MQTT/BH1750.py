@@ -9,7 +9,7 @@ from umqtt.simple import MQTTClient
 #SDA接P4
 #ADDR接P19
 
-
+#def main():
 i2c = I2C(scl=Pin(15), sda=Pin(4), freq=10000)  # 软件I2C
 addr_list = i2c.scan()
 print('addr_list:', addr_list)
