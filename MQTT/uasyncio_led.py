@@ -3,8 +3,8 @@ import machine
 import network
 from umqtt.simple import MQTTClient as Client
 
-SSIDs = ["Yunitrish", "603"]
-PWDs = ["0937565253", "0937565253"]
+SSIDs = ["c&k", "603", "Yunitrish", 'V2041']
+PWDs = ["0423151980", "0937565253", "0937565253", '123456789']
 
 
 class Unit:
@@ -41,18 +41,24 @@ class Unit:
 
 
 async def connect_net(ssid: list[str], password: list[str], num: int):
+    if num >= len(ssid):
+        ssid.append(input("SSID: "))
+        password.append(input("PassWord: "))
     try:
         wlan = network.WLAN(network.STA_IF)
-        wlan.active(True)
+        if num == 0:
+            wlan.active(True)
         wlan.connect(ssid[num], password[num])
-        await asyncio.sleep_ms(2000)
+        await asyncio.sleep_ms(1000)
         print("Connected to network:", wlan.ifconfig()[0])
     except KeyboardInterrupt:
-        print("Connection interrupted by user.")
-        await connect_net(ssid, password, num - 1)
+        print("[" + str(num) + "]Connection interrupted by user.")
+        num += 1
+        await connect_net(ssid, password, num)
     except Exception as e:
-        print("Error connecting to network:", e)
-        await connect_net(ssid, password, num - 1)
+        num += 1
+        print("[" + str(num) + "]Error connecting to network:", e)
+        await connect_net(ssid, password, num)
 
 
 async def blink(led_pin, gap: int, time: int):
@@ -81,8 +87,10 @@ async def main():
 
     async def loopor():
         runner.send_message()
-        await asyncio.create_task(blink(led_pin, 1500, 1))
+        await asyncio.create_task(blink(led_pin, 100, 1))
+
         await loopor()
+
     await loopor()
 
 
