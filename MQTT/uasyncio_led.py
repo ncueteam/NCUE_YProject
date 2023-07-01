@@ -2,11 +2,8 @@ import uasyncio as asyncio
 import machine
 import network
 from umqtt.simple import MQTTClient as Client
-
 SSIDs = ["c&k", "603", "Yunitrish", 'V2041']
 PWDs = ["0423151980", "0937565253", "0937565253", '123456789']
-
-
 class Unit:
     topic = "NCUEMQTT"
     port = 1883
@@ -38,8 +35,6 @@ class Unit:
     def send_message(self) -> None:
         self.client.publish(self.topic, "[" + self.username + "]\t" + input())
         # self.send_message()
-
-
 async def connect_net(ssid: list[str], password: list[str], num: int):
     if num >= len(ssid):
         ssid.append(input("SSID: "))
@@ -59,8 +54,6 @@ async def connect_net(ssid: list[str], password: list[str], num: int):
         num += 1
         print("[" + str(num) + "]Error connecting to network:", e)
         await connect_net(ssid, password, num)
-
-
 async def blink(led_pin, gap: int, time: int):
     if time == -1:
         while True:
@@ -77,8 +70,6 @@ async def blink(led_pin, gap: int, time: int):
         led_pin.off()
         await asyncio.sleep_ms(gap)
         await blink(led_pin, gap, time - 1)
-
-
 async def main():
     led_pin = machine.Pin(2, machine.Pin.OUT)
     await asyncio.create_task(blink(led_pin, 100, 10))
@@ -88,11 +79,8 @@ async def main():
     async def loopor():
         runner.send_message()
         await asyncio.create_task(blink(led_pin, 100, 1))
-
         await loopor()
-
     await loopor()
-
 
 def run():
     loop = asyncio.get_event_loop()

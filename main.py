@@ -1,8 +1,5 @@
-from MQTT import BH1750
+import uasyncio
+from device.segment_7 import displayor
 
-def main():
-    print("launching...")
-    BH1750.run()
-
-
-#main()
+loop = uasyncio.get_event_loop()
+loop.run_until_complete(displayor.main())
