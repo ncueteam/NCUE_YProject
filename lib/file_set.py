@@ -22,12 +22,12 @@ class FileSet:
     def query(self, key: str):
         return key, self.data[key]
 
-    def add(self, ssid: str, value: str):
-        self.data[ssid] = value
+    def add(self, key: str, value: str):
+        self.data[key] = value
         self.save()
 
-    def delete(self, ssid: str):
-        del self.data[ssid]
+    def delete(self, key: str):
+        del self.data[key]
         self.save()
 
     def list(self):
