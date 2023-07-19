@@ -19,13 +19,13 @@ global internal_tree
 #### -------------User Variables----------------####
 #### 
 # Default Network to connect using wificonnect()
-ssid = "OpenMuscle"
-password = "3141592653"
+ssid = "203"
+password = "0937565253"
 
 # CHANGE TO YOUR REPOSITORY INFO
 # Repository must be public if no personal access token is supplied
-user = 'turfptax'
-repository = 'ugit_test'
+user = 'Yunitrish006006'
+repository = 'NCUE_YProject'
 token = ''
 # Change this variable to 'master' or any other name matching your default branch
 default_branch = 'main'
