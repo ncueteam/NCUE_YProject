@@ -1,8 +1,9 @@
 import time
 import network
-from umqtt.simple import MQTTClient
+from lib.umqtt.simple import MQTTClient
 from machine import Pin
-import dht
+from documents import dht
+
 
 def main():
     dht11 = dht.DHT11(Pin(14))

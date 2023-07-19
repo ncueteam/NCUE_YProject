@@ -1,4 +1,4 @@
-from umqtt.simple import MQTTClient as Client
+from lib.umqtt.simple import MQTTClient as Client
 import threading
 
 class Unit:

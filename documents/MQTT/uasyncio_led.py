@@ -1,7 +1,7 @@
 import uasyncio as asyncio
 import machine
 import network
-from umqtt.simple import MQTTClient as Client
+from lib.umqtt.simple import MQTTClient as Client
 SSIDs = ["c&k", "603", "Yunitrish", 'V2041']
 PWDs = ["0423151980", "0937565253", "0937565253", '123456789']
 class Unit:
