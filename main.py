@@ -9,7 +9,7 @@ fileset = FileSet(folder='database', file_name='wifi.json')
 fileset.add("302", "0937565253")
 fileset.add("V2041", "123456789")
 
-wifi = WifiUnit(ssid="c&k", password="0937565253")
+wifi = WifiUnit(ssid="203", password="0937565253")
 
 # 紅外遙控測試
 # test()
