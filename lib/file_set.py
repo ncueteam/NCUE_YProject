@@ -14,7 +14,7 @@ class FileSet:
 
     def initialize(self):
         try:
-            os.mkdir("/" + self.Folder + "/" + self.FileName)
+            os.mkdir("/" + self.Folder)
         except OSError as e:
             if e.args[0] != 17:
                 raise

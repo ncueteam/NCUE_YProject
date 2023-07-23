@@ -11,7 +11,8 @@ fileset.add("V2041", "123456789")
 
 wifi = WifiUnit(ssid="c&k", password="0937565253")
 
-test()
+# 紅外遙控測試
+# test()
 
 loop = uasyncio.get_event_loop()
 loop.run_until_complete(displayor.main())
