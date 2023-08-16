@@ -1,7 +1,7 @@
 import time
 from machine import I2C, Pin
 import network
-from umqtt.simple import MQTTClient
+from lib.umqtt.simple import MQTTClient
 
 #VCC接3.3V
 #GND接CND
