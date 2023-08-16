@@ -116,25 +116,61 @@ server端 <https://jade-impulse-6f8.notion.site/0f2234d368bb4eac8b94621e89ecebd7
 * 修改設定
 * 連線至主裝置
 
-## 傳遞格式 (json)
+## 傳遞格式/協定 (json)
 
-### 設定
+[ 操作碼 ] "code"
+>
+> 【註冊】"register"
+>
+> 【修改】"modify"
+>
+> 【操作】"operate"
+>
+> 【取消註冊】"unregister"
+>
+[ ID ] "id"
+>
+> 除了註冊以外後面都需要有
+>
+[ 裝置類型 ] "type"
+[ 擁有者 ] "owner"
+[ 群組 ] "group"
 
-setting:{
-    devicename:"",
-    option:"",
-    value:"",
-    crypto:"",
-    date:"",
-    user:""
-}
+## 範例 1
 
-### 使用
+esp32 ➡️ server
 
-use:{
-    devicename:"",
-    option:"",
-    value:"",
-    crypto:"",
-    user:""
-}
+> {
+>
+>> "code":"register",
+>>
+>> "data": {
+>>
+>>> "type":"temperature_sensor",
+>>>
+>>> "owner":"test_user"
+>>
+>> }
+>>
+>
+> }
+
+## 範例 2
+
+server ➡️ esp32
+
+> {
+>
+>> "code":"operate",
+>>
+>> "data": {
+>>>
+>>> "type":"air_conditioner",
+>>>
+>>> "id":"68943d7c-3c45-11ee-be56-0242ac120002",
+>>>  
+>>> "operation":"temperature_up"
+>>>
+>> }
+>
+> }
