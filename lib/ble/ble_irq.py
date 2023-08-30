@@ -1,9 +1,10 @@
 from machine import Pin
 from time import sleep_ms, sleep
 import ubluetooth
+from lib.file_set import FileSet
 
 
-class ESP32_BLE():
+class BLE_IRQ():
     def __init__(self, name):
         self.led = Pin(2, Pin.OUT)
         self.name = name
@@ -13,9 +14,9 @@ class ESP32_BLE():
         self.ble.irq(self.ble_irq)
 
     def register(self):
-        ENV_SERVER_UUID = ubluetooth.UUID(0x181A)
-        TEM_CHAR_UUID = ubluetooth.UUID(0x2A6E)
-        HUM_CHAR_UUID = ubluetooth.UUID(0x2A6F)
+        ENV_SERVER_UUID = ubluetooth.UUID(0x9011)
+        TEM_CHAR_UUID = ubluetooth.UUID(0x9012)
+        HUM_CHAR_UUID = ubluetooth.UUID(0x9013)
 
         TEM_CHAR = (TEM_CHAR_UUID, ubluetooth.FLAG_READ | ubluetooth.FLAG_WRITE | ubluetooth.FLAG_NOTIFY,)
         HUM_CHAR = (HUM_CHAR_UUID, ubluetooth.FLAG_READ | ubluetooth.FLAG_NOTIFY,)
@@ -47,14 +48,16 @@ class ESP32_BLE():
         elif event == 3:
             onn_handle, char_handle = data
             buffer = self.ble.gatts_read(char_handle)
-            print(char_handle, buffer, str(buffer, 'UTF-8'))
-            if str(buffer, 'UTF-8') == "led on":
-                self.led.on()
-                self.ble.gatts_notify(0, char_handle, 'led on!')
-            elif str(buffer, 'UTF-8') == "led off":
-                self.led.off()
-                self.ble.gatts_notify(0, char_handle, 'led off!')
-            else:
-                self.ble.gatts_notify(0, char_handle, 'Hello')
+            ble_msg = buffer.decode('UTF-8').strip()
+            print(ble_msg)
+
+            arr = ble_msg.split(',')
+            name = arr[0]
+            password = arr[1]
+            fileset = FileSet(folder='database', file_name='wifi.json')
+            fileset.add(name, password)
+
+
+
 
 
